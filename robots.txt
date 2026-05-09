@@ -1,10 +1,11 @@
 # Affilia — robots.txt
 # We are an AI citation agency. We invite AI crawlers explicitly.
+# Last updated: 2026-05-09
 
 User-agent: *
 Allow: /
 
-# Major AI crawlers — explicit invite
+# ─── OpenAI (ChatGPT) ────────────────────────────────────────
 User-agent: GPTBot
 Allow: /
 
@@ -14,55 +15,126 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
+# ─── Anthropic (Claude) ──────────────────────────────────────
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
 User-agent: anthropic-ai
 Allow: /
 
+# ─── xAI (Grok) ──────────────────────────────────────────────
+User-agent: Grok
+Allow: /
+
+User-agent: xAI-Bot
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+# ─── Perplexity ──────────────────────────────────────────────
 User-agent: PerplexityBot
 Allow: /
 
 User-agent: Perplexity-User
 Allow: /
 
+# ─── Google (Gemini, AI Overviews, Vertex) ──────────────────
 User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther
 Allow: /
 
-User-agent: CCBot
+User-agent: Googlebot
 Allow: /
 
-User-agent: cohere-ai
+# ─── Microsoft (Bing, Copilot) ───────────────────────────────
+User-agent: Bingbot
 Allow: /
 
-User-agent: Bytespider
+User-agent: BingPreview
 Allow: /
 
+User-agent: msnbot
+Allow: /
+
+# ─── Meta (Llama, Meta AI) ───────────────────────────────────
 User-agent: FacebookBot
 Allow: /
 
 User-agent: Meta-ExternalAgent
 Allow: /
 
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# ─── Apple (Apple Intelligence) ──────────────────────────────
 User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
 
-User-agent: Bingbot
+# ─── European / Independent AI ──────────────────────────────
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# ─── Asian AI Engines ────────────────────────────────────────
+User-agent: Bytespider
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: PanguBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# ─── Common Crawl & Training Datasets ───────────────────────
+User-agent: CCBot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: omgilibot
+Allow: /
+
+# ─── AI Search & Answer Engines ──────────────────────────────
+User-agent: YouBot
 Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
 
-User-agent: YouBot
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: PhindBot
 Allow: /
 
 User-agent: Diffbot
@@ -71,8 +143,15 @@ Allow: /
 User-agent: ImagesiftBot
 Allow: /
 
-# Sitemap
+User-agent: Timpibot
+Allow: /
+
+User-agent: Kagibot
+Allow: /
+
+# ─── Sitemap ─────────────────────────────────────────────────
 Sitemap: https://affilia.com/sitemap.xml
 
-# AI agent context (llms.txt convention)
-# See: https://affilia.com/llms.txt
+# ─── AI agent context ────────────────────────────────────────
+# Structured site summary for AI agents at:
+# https://affilia.com/llms.txt
