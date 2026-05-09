@@ -1,0 +1,34 @@
+# Affilia
+
+> AI citation audits and GEO services for the affiliate industry. We get affiliate networks, tracking platforms, AI tools, and partnership SaaS recommended by ChatGPT, Perplexity, and Gemini. Performance-priced — we get paid when you start being cited.
+
+Affilia is the citation audit and Generative Engine Optimization (GEO) agency for affiliate-industry vendors. Our customers are companies whose products are sold through affiliate channels: affiliate networks (Impact, PartnerStack, Awin, CJ), tracking platforms (Rewardful, FirstPromoter, Tapfiliate, Trackdesk), AI tools marketed to affiliates (Jasper, Surfer, AdCreative.ai), and attribution/link infrastructure (Pretty Links, Lasso, Dub.co, ClickMagick).
+
+We engineer brand presence in the corpora that LLMs cite — Wikipedia, Reddit, G2/Capterra, YouTube, Substack, earned media — rather than chasing Google rankings. The result: when a marketer asks ChatGPT "what's the best [category]," our clients are in the answer.
+
+## Key facts
+
+- Less than 3% of affiliate-industry vendors have a dedicated AI citation strategy
+- AI search converts at 14.2% vs Google's 2.8%
+- Perplexity referrals convert at 11x organic search rates
+- 800M weekly active ChatGPT users (Q1 2026)
+- Google AI Overviews intercept 1 in 5 commercial queries (93% zero-click rate)
+
+## Service tiers
+
+- Starter: $5K/month + 10% performance kicker on attributed AI revenue lift
+- Growth: $12K/month + 15% performance kicker
+- Scale: $25K/month + 20% performance kicker
+
+Every engagement begins with a free 30-minute citation audit benchmarking the client against three competitors across six LLMs.
+
+## Pages
+
+- [Homepage](https://affilia.com/): The thesis, who we serve, how we operate, pricing, free citation audit form
+- [Tools Index](https://affilia.com/tools/): Curated index of 94 affiliate-industry tools across 10 categories — affiliate networks, tracking platforms, GEO/AI visibility tools, AI content tools, creative AI, video and voice AI, link management, outreach, analytics, automation
+
+## Contact
+
+- General: hello@affilia.com
+- Press: press@affilia.com
+- Tools index updates: tools@affilia.com
