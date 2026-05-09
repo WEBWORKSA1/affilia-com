@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Affilia — Partnership marketing for the AI search era</title>
+<meta name="description" content="The AI-citation and attribution layer for affiliate-driven brands. We get your products recommended by ChatGPT, Perplexity, and Gemini — and we get paid only when it converts." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a0a08;
+  --paper: #f7f4ec;
+  --paper-2: #efeae0;
+  --rule: #1a1916;
+  --accent: #d4471c;
+  --accent-2: #c4a570;
+  --muted: #6b6960;
+  --green: #1f5d3a;
+  --soft: #ebe5d6;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Inter Tight', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 40px;
+  background: rgba(247, 244, 236, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(26, 25, 22, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 0.6; }
+.nav-cta {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 18px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--ink);
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--accent); border-color: var(--accent); opacity: 1 !important; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 140px 40px 80px;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: "";
+  width: 32px; height: 1px;
+  background: var(--accent);
+  display: inline-block;
+}
+h1.hero-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+h1.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 520px;
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid rgba(26, 25, 22, 0.15);
+  padding-top: 16px;
+}
+.cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-secondary:hover { background: var(--ink); color: var(--paper); }
+.btn-primary svg { transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+/* Hero stat block */
+.hero-stat {
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding: 32px;
+  position: relative;
+}
+.hero-stat::before {
+  content: "FIG. 01";
+  position: absolute;
+  top: 16px; right: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(26, 25, 22, 0.1);
+  font-size: 14px;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-label { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.stat-value { font-family: var(--display); font-size: 24px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+.stat-value.accent { color: var(--accent); }
+.stat-value.green { color: var(--green); }
+.stat-caption {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 16px;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+/* ===== TICKER ===== */
+.ticker {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+.ticker-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 50s linear infinite;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.ticker-item { display: flex; align-items: center; gap: 14px; }
+.ticker-item span:first-child { color: var(--accent-2); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 120px 40px; border-bottom: 1px solid var(--rule); }
+.container { max-width: 1320px; margin: 0 auto; }
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.section-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-lede {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+
+/* ===== THESIS ===== */
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+.thesis-card {
+  padding: 40px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.thesis-card:last-child { border-right: none; }
+.thesis-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.thesis-headline {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.thesis-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.thesis-stat {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(26, 25, 22, 0.15);
+  padding-top: 16px;
+}
+.thesis-stat strong { color: var(--accent); font-weight: 600; }
+
+/* ===== HOW IT WORKS ===== */
+.how-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.how-step {
+  border-top: 1px solid var(--rule);
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr 200px;
+  gap: 32px;
+  align-items: start;
+}
+.how-step:last-child { border-bottom: 1px solid var(--rule); }
+.step-num {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+}
+.step-title {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.step-desc { font-size: 15px; line-height: 1.6; color: var(--ink); }
+.step-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  padding-top: 6px;
+}
+
+/* ===== PROOF / CITATION ===== */
+.proof-section {
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+.proof-section .section-eyebrow { color: var(--accent-2); }
+.proof-section .section-title { color: var(--paper); }
+.proof-section .section-title em { color: var(--accent-2); }
+.citation-card {
+  background: rgba(247, 244, 236, 0.04);
+  border: 1px solid rgba(247, 244, 236, 0.12);
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.citation-platform {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent-2);
+  font-weight: 600;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.citation-quote {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--paper);
+  margin-bottom: 18px;
+}
+.citation-quote strong {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0 4px;
+  font-style: normal;
+  font-weight: 500;
+}
+.citation-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(247, 244, 236, 0.6);
+  letter-spacing: 0.05em;
+}
+
+/* ===== PRICING ===== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.pricing-card {
+  padding: 40px 36px;
+  border-right: 1px solid var(--rule);
+  background: var(--paper);
+  position: relative;
+  transition: background 0.2s;
+}
+.pricing-card:last-child { border-right: none; }
+.pricing-card.featured { background: var(--paper-2); }
+.pricing-card.featured::after {
+  content: "MOST CHOSEN";
+  position: absolute;
+  top: 0; right: 36px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding: 6px 12px;
+}
+.pricing-tier {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.pricing-amount {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.pricing-amount sub {
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.pricing-perf {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(26, 25, 22, 0.12);
+}
+.pricing-list { list-style: none; margin-bottom: 32px; }
+.pricing-list li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  padding: 8px 0;
+  display: flex;
+  gap: 12px;
+}
+.pricing-list li::before {
+  content: "→";
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ===== AUDIT / CTA ===== */
+.audit-section {
+  background: var(--paper-2);
+}
+.audit-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 64px 56px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.audit-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.audit-title {
+  font-family: var(--display);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.audit-title em { font-style: italic; color: var(--accent); }
+.audit-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+.audit-form { display: flex; flex-direction: column; gap: 14px; }
+.audit-form input {
+  padding: 16px 18px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border 0.2s;
+}
+.audit-form input:focus { border-color: var(--accent); }
+.audit-form input::placeholder { color: var(--muted); }
+.audit-form button {
+  padding: 18px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.audit-form button:hover { background: var(--accent); }
+.form-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 40px 40px;
+}
+.footer-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand-name {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.footer-brand-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(247, 244, 236, 0.7);
+  max-width: 320px;
+}
+.footer-col h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  color: rgba(247, 244, 236, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--paper); }
+.footer-bottom {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-top: 32px;
+  border-top: 1px solid rgba(247, 244, 236, 0.1);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(247, 244, 236, 0.5);
+  letter-spacing: 0.05em;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-grid > * { animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.hero-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-grid > *:nth-child(2) { animation-delay: 0.3s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 980px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding: 120px 24px 60px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  section { padding: 80px 24px; }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .thesis-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .thesis-card:last-child { border-bottom: none; }
+  .how-grid { grid-template-columns: 1fr; gap: 40px; }
+  .how-step { grid-template-columns: 60px 1fr; }
+  .step-tag { display: none; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .pricing-card:last-child { border-bottom: none; }
+  .audit-card { grid-template-columns: 1fr; padding: 40px 28px; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  nav { padding: 14px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">affilia</div>
+  <div class="nav-links">
+    <a href="#thesis">Thesis</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#audit" class="nav-cta">Free citation audit →</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Vol. 01 / Issue 001 / Affilia Index</div>
+      <h1 class="hero-title">
+        Partnership marketing<br>
+        for the <em>AI search</em><br>
+        era.
+      </h1>
+      <p class="hero-sub">
+        ChatGPT, Perplexity and Gemini are now where buyers research before they purchase. We get your products cited, recommended, and clicked — and we get paid only when it converts.
+      </p>
+      <div class="cta-row">
+        <a href="#audit" class="btn-primary">
+          Get a free citation audit
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+        </a>
+        <a href="#thesis" class="btn-secondary">Read the thesis</a>
+      </div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-row">
+        <span class="stat-label">AI search conversion</span>
+        <span class="stat-value accent">14.2%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Google search conversion</span>
+        <span class="stat-value">2.8%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Perplexity vs organic CTR</span>
+        <span class="stat-value green">11×</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">AI Overviews zero-click rate</span>
+        <span class="stat-value">93%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Affiliates relying on Google</span>
+        <span class="stat-value">87%</span>
+      </div>
+      <div class="stat-caption">SOURCE: PROFOUND, AHREFS, GROWTH MEMO, Q1 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span>↑</span><span>CHATGPT REFERRALS UP 380% YOY</span></div>
+    <div class="ticker-item"><span>↓</span><span>AFFILIATE CONTENT TRAFFIC −47%</span></div>
+    <div class="ticker-item"><span>●</span><span>WIKIPEDIA CITED 7.8% OF CHATGPT ANSWERS</span></div>
+    <div class="ticker-item"><span>●</span><span>REDDIT CITED 1.8%</span></div>
+    <div class="ticker-item"><span>●</span><span>G2 CITED 1.1%</span></div>
+    <div class="ticker-item"><span>↑</span><span>AI SEARCH AD MARKET TO $26B BY 2029</span></div>
+    <div class="ticker-item"><span>●</span><span>800M WEEKLY CHATGPT USERS</span></div>
+    <div class="ticker-item"><span>↓</span><span>95% OF NEW AFFILIATES FAIL IN YEAR ONE</span></div>
+    <!-- duplicate -->
+    <div class="ticker-item"><span>↑</span><span>CHATGPT REFERRALS UP 380% YOY</span></div>
+    <div class="ticker-item"><span>↓</span><span>AFFILIATE CONTENT TRAFFIC −47%</span></div>
+    <div class="ticker-item"><span>●</span><span>WIKIPEDIA CITED 7.8% OF CHATGPT ANSWERS</span></div>
+    <div class="ticker-item"><span>●</span><span>REDDIT CITED 1.8%</span></div>
+    <div class="ticker-item"><span>●</span><span>G2 CITED 1.1%</span></div>
+    <div class="ticker-item"><span>↑</span><span>AI SEARCH AD MARKET TO $26B BY 2029</span></div>
+    <div class="ticker-item"><span>●</span><span>800M WEEKLY CHATGPT USERS</span></div>
+    <div class="ticker-item"><span>↓</span><span>95% OF NEW AFFILIATES FAIL IN YEAR ONE</span></div>
+  </div>
+</div>
+
+<!-- ============ THESIS ============ -->
+<section id="thesis">
+  <div class="container">
+    <div class="section-eyebrow">The Thesis</div>
+    <h2 class="section-title">
+      Affiliate is moving from <em>links and SEO</em> to <em>citations and conversations</em>. Most networks aren't built for it.
+    </h2>
+    <p class="section-lede">
+      The 25-year-old affiliate playbook — write product reviews, rank on Google, place tracked links — is breaking in real time. The brands and partners that thrive in 2026 are operating on completely different rails.
+    </p>
+
+    <div class="thesis-grid">
+      <div class="thesis-card">
+        <div class="thesis-num">01 / The decay</div>
+        <h3 class="thesis-headline">Google AI Overviews now intercept 1 in 5 commercial queries.</h3>
+        <p class="thesis-body">Independent affiliate sites have lost 40–70% of clicks since AI Overviews launched. Reddit, Forbes, and three media holding companies own most of what's left of the SERP. The old model is structurally broken.</p>
+        <div class="thesis-stat">93% zero-click rate · <strong>−47% YoY</strong> traffic to mid-market affiliate content</div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-num">02 / The opportunity</div>
+        <h3 class="thesis-headline">AI search converts 5× better than Google. The audience is already there.</h3>
+        <p class="thesis-body">800M weekly active ChatGPT users. Perplexity referrals convert at 11× organic search rates. The buyers haven't disappeared — they've moved to interfaces where most affiliate programs have zero presence.</p>
+        <div class="thesis-stat">14.2% AI conversion · <strong>2.8%</strong> Google · The gap is the opportunity</div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-num">03 / The wedge</div>
+        <h3 class="thesis-headline">Citation engineering is a different game than SEO. Networks haven't pivoted.</h3>
+        <p class="thesis-body">LLMs cite Wikipedia, Reddit, G2, YouTube, Substack. None of those are SEO plays. None of the major affiliate networks have rebuilt their publisher base around them. We have. That's the wedge.</p>
+        <div class="thesis-stat">7.8% Wikipedia · <strong>1.8%</strong> Reddit · <strong>1.1%</strong> G2 — citation share by source</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="container">
+    <div class="how-grid">
+      <div>
+        <div class="section-eyebrow">How we operate</div>
+        <h2 class="section-title">A four-step system. <em>Performance-priced.</em></h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--muted); margin-top: 24px;">
+          We don't chase Google. We engineer presence in the exact corpora and channels that LLMs and AI agents actually pull from. Every engagement compounds — for our clients, and for the proprietary dataset that makes us better at the next one.
+        </p>
+      </div>
+      <div>
+        <div class="how-step">
+          <div class="step-num">01</div>
+          <div>
+            <h4 class="step-title">Citation Audit</h4>
+            <p class="step-desc">We map your current AI-citation share across 6 LLMs for 50–100 prompts in your category. We benchmark you against your top 3 competitors. Free, 30 minutes, no pitch.</p>
+          </div>
+          <div class="step-tag">DAY 1–7</div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">02</div>
+          <div>
+            <h4 class="step-title">Engineering</h4>
+            <p class="step-desc">We seed your products into Wikipedia entity graphs, G2/Capterra reviews, Reddit threads, YouTube creators, Substack newsletters, and earned media. We don't write thin SEO content. We engineer authority.</p>
+          </div>
+          <div class="step-tag">WEEK 2–8</div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">03</div>
+          <div>
+            <h4 class="step-title">Attribution</h4>
+            <p class="step-desc">We instrument every citation, mention, and referral. UTM tagging, server-side tracking, AI-aware attribution models. You see exactly which prompt → which citation → which conversion.</p>
+          </div>
+          <div class="step-tag">CONTINUOUS</div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">04</div>
+          <div>
+            <h4 class="step-title">Performance</h4>
+            <p class="step-desc">Monthly retainer covers strategy and execution. Performance kicker (10–20% of attributed AI-driven revenue lift) aligns our incentives with yours. We get paid more when you do.</p>
+          </div>
+          <div class="step-tag">MONTHLY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF / CITATION SAMPLES ============ -->
+<section class="proof-section">
+  <div class="container">
+    <div class="section-eyebrow">Citations in the wild</div>
+    <h2 class="section-title">When an LLM recommends your product, <em>this is what it looks like.</em></h2>
+    <p style="font-size: 17px; line-height: 1.6; color: rgba(247, 244, 236, 0.75); max-width: 720px; margin-bottom: 60px;">
+      Sample citations from real prompts. Brands shown are illustrative of the categories we work in, not active clients.
+    </p>
+
+    <div class="citation-card">
+      <div class="citation-platform">CHATGPT</div>
+      <div>
+        <p class="citation-quote">
+          "For B2B project management, the most-recommended platforms are <strong>Linear</strong> for engineering teams, <strong>ClickUp</strong> for cross-functional ops, and <strong>Asana</strong> for marketing. Linear's velocity reporting is particularly well-regarded among Series B+ companies."
+        </p>
+        <div class="citation-meta">PROMPT: "best B2B project management software for a 50-person SaaS team" · OUTPUT MAY 2026</div>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="citation-platform">PERPLEXITY</div>
+      <div>
+        <p class="citation-quote">
+          "<strong>Notion</strong> remains the broadest fit for documentation-heavy teams, while <strong>Coda</strong> wins on database flexibility. <strong>Mem</strong> is gaining ground for AI-first knowledge workflows, particularly for solo operators and small teams."
+        </p>
+        <div class="citation-meta">PROMPT: "what's the best AI-native knowledge base in 2026" · CITATIONS: G2, REDDIT r/productivity, YOUTUBE</div>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="citation-platform">GEMINI</div>
+      <div>
+        <p class="citation-quote">
+          "Top-rated AI affiliate marketing tools include <strong>Surfer SEO</strong> for content optimization, <strong>Jasper</strong> for high-volume copy, and <strong>AdCreative.ai</strong> for paid campaign assets. Each integrates with major affiliate networks."
+        </p>
+        <div class="citation-meta">PROMPT: "AI tools for affiliate marketers" · MAY 2026</div>
+      </div>
+    </div>
+
+    <p style="font-family: var(--mono); font-size: 11px; color: rgba(247, 244, 236, 0.5); letter-spacing: 0.08em; margin-top: 24px;">
+      → A CITATION IS WORTH 100 BACKLINKS. WE BUILD CITATIONS.
+    </p>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title">Transparent retainers. <em>Performance-aligned.</em></h2>
+    <p class="section-lede">
+      We charge for execution, not optimism. Every tier includes a performance kicker so we win when you win. No long contracts; 90-day initial term, month-to-month thereafter.
+    </p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-amount">$5K<sub> / month</sub></div>
+        <div class="pricing-perf">+ 10% of attributed AI-driven revenue lift</div>
+        <ul class="pricing-list">
+          <li>3 LLM platforms tracked</li>
+          <li>50 priority prompts monitored</li>
+          <li>1 owned-property citation campaign</li>
+          <li>Monthly Citation Share Report</li>
+          <li>Slack channel access</li>
+        </ul>
+        <a href="#audit" class="btn-secondary" style="display: block; text-align: center;">Start with audit →</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Growth</div>
+        <div class="pricing-amount">$12K<sub> / month</sub></div>
+        <div class="pricing-perf">+ 15% of attributed AI-driven revenue lift</div>
+        <ul class="pricing-list">
+          <li>6 LLM platforms tracked</li>
+          <li>200 priority prompts monitored</li>
+          <li>3 owned + earned media campaigns</li>
+          <li>Wikipedia + G2 + Reddit seeding</li>
+          <li>Bi-weekly strategy calls</li>
+          <li>Custom attribution dashboard</li>
+        </ul>
+        <a href="#audit" class="btn-primary" style="display: block; text-align: center;">Start with audit →</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Scale</div>
+        <div class="pricing-amount">$25K<sub> / month</sub></div>
+        <div class="pricing-perf">+ 20% of attributed AI-driven revenue lift</div>
+        <ul class="pricing-list">
+          <li>All LLMs tracked, weekly</li>
+          <li>500+ priority prompts</li>
+          <li>Full creator partnership program</li>
+          <li>Substack + YouTube + podcast placements</li>
+          <li>Dedicated strategist</li>
+          <li>White-glove M&amp;A-grade reporting</li>
+        </ul>
+        <a href="#audit" class="btn-secondary" style="display: block; text-align: center;">Start with audit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIT CTA ============ -->
+<section id="audit" class="audit-section">
+  <div class="container">
+    <div class="audit-card">
+      <div>
+        <div class="audit-eyebrow">The free audit</div>
+        <h2 class="audit-title">See <em>your</em> citation share<br>in 30 minutes.</h2>
+        <p class="audit-desc">
+          We'll run your brand against 50 high-intent prompts across ChatGPT, Perplexity, Gemini, and Google AI Overviews. We benchmark you against your top three competitors and identify three fixable gaps. No pitch unless you ask for one.
+        </p>
+        <p style="font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em;">
+          → ONE AUDIT PER COMPANY · LIMITED TO 10 PER WEEK
+        </p>
+      </div>
+      <form name="audit" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="audit-form">
+        <input type="hidden" name="form-name" value="audit" />
+        <p style="display:none;"><label>Don't fill this: <input name="bot-field" /></label></p>
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Work email" required />
+        <input type="text" name="company" placeholder="Company" required />
+        <input type="url" name="website" placeholder="Company website" required />
+        <input type="text" name="role" placeholder="Your role (e.g. Head of Growth)" required />
+        <button type="submit">Request my citation audit →</button>
+        <span class="form-note">→ NO PITCH. NO LIST SHARING. WE REPLY WITHIN 24 HOURS.</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">affilia</div>
+      <p class="footer-brand-desc">
+        The AI-citation and attribution layer for affiliate-driven brands. Building the partnership infrastructure for the post-search era.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>Platform</h5>
+      <ul>
+        <li><a href="#thesis">Thesis</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#audit">Free audit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Index</h5>
+      <ul>
+        <li><a href="#">Affilia Index ∙ B2B SaaS</a></li>
+        <li><a href="#">Affilia Index ∙ Fintech</a></li>
+        <li><a href="#">Affilia Index ∙ DTC</a></li>
+        <li><a href="#">Methodology</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="mailto:hello@affilia.com">hello@affilia.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AFFILIA · ALL RIGHTS RESERVED</span>
+    <span>BUILT FOR THE AI SEARCH ERA</span>
+  </div>
+</footer>
+
+</body>
+</html>
