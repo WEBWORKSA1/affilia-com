@@ -95,7 +95,17 @@ Allow: /
 User-agent: cohere-training-data-crawler
 Allow: /
 
-# ─── Asian AI Engines ────────────────────────────────────────
+# ─── Autonomous AI Agents ────────────────────────────────────
+User-agent: Manus
+Allow: /
+
+User-agent: ManusBot
+Allow: /
+
+User-agent: Manus-Agent
+Allow: /
+
+# ─── Chinese / Asian AI Engines ──────────────────────────────
 User-agent: Bytespider
 Allow: /
 
@@ -112,6 +122,15 @@ User-agent: Yeti
 Allow: /
 
 User-agent: Baiduspider
+Allow: /
+
+User-agent: Kimi-Bot
+Allow: /
+
+User-agent: Moonshot-AI
+Allow: /
+
+User-agent: KimiBot
 Allow: /
 
 # ─── Common Crawl & Training Datasets ───────────────────────
