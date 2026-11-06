@@ -1,0 +1,10 @@
+{
+  "name": "Affilia.com",
+  "short_name": "Affilia",
+  "description": "Affiliate program directory, calculators and partnership playbooks.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FBFBFD",
+  "theme_color": "#2D3FE0",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
