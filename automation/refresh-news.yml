@@ -1,0 +1,40 @@
+# Daily auto-refresh for Affilia.com.
+# To enable: create .github/workflows/refresh-news.yml in the GitHub web editor
+# and paste this file's contents (see automation/README.md).
+name: Refresh news and sitemap
+
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pull headlines and update sitemap
+        run: python automation/refresh.py
+      - name: Commit changes
+        run: |
+          git config user.name "affilia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news.json sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          git commit -m "Daily refresh: news and sitemap"
+          git push
+      - name: Rebuild GitHub Pages
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
