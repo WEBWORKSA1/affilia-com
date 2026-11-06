@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-root="../../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Affiliate link builder with UTM tags and rel attributes | Affilia</title>
+<meta name="description" content="Build clean affiliate links: add your affiliate ID and UTM tags to any URL, and copy HTML with rel=sponsored for search-engine compliance.">
+<link rel="canonical" href="https://affilia.com/tools/link-builder/">
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../assets/js/config.js" defer></script>
+<script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/tools.js" defer></script>
+</head>
+<body data-nav="tools">
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<div class="wrap page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../">Tools</a> / Affiliate link builder</nav>
+<h1>Affiliate link builder</h1>
+<p class="lede">Add your affiliate ID and campaign tags to any address, and get ready-to-paste HTML with the attributes search engines expect on paid links.</p>
+</div>
+<section class="wrap" data-tool="link">
+<div class="tool">
+<div class="form-card">
+<div class="field"><label for="l-url">Destination URL</label><input id="l-url" type="url" placeholder="https://example.com/product" value="https://example.com/pricing"></div>
+<div class="grid-2">
+<div class="field"><label for="l-param">Affiliate parameter name</label><input id="l-param" type="text" value="ref"><span class="hint">Often ref, aff, via or tag. Check your program&rsquo;s docs.</span></div>
+<div class="field"><label for="l-id">Your affiliate ID</label><input id="l-id" type="text" value="yourname"></div>
+</div>
+<div class="grid-2">
+<div class="field"><label for="l-src">utm_source</label><input id="l-src" type="text" placeholder="newsletter"></div>
+<div class="field"><label for="l-med">utm_medium</label><input id="l-med" type="text" placeholder="affiliate"></div>
+<div class="field"><label for="l-camp">utm_campaign</label><input id="l-camp" type="text" placeholder="spring-review"></div>
+<div class="field"><label for="l-content">utm_content</label><input id="l-content" type="text" placeholder="comparison-table"></div>
+</div>
+<div class="field"><label for="l-text">Link text for the HTML snippet</label><input id="l-text" type="text" value="Check the current price"></div>
+</div>
+<div class="tool-out" aria-live="polite">
+<h2 class="h3">Your link</h2>
+<div class="output-box" id="o-link"></div>
+<button class="btn btn-pub btn-small" type="button" data-copy="#o-link">Copy link</button>
+<h2 class="h3" style="margin-top:1.5rem">HTML snippet</h2>
+<div class="output-box" id="o-html"></div>
+<button class="btn btn-ghost btn-small" type="button" data-copy="#o-html">Copy HTML</button>
+</div>
+</div>
+</section>
+<div class="wrap"><div class="ad-slot" data-ad="inArticle"></div></div>
+<section class="section wrap">
+<div class="prose">
+<h2>Why the rel attribute matters</h2>
+<p>Google asks site owners to mark paid and affiliate links with <code>rel="sponsored"</code>, and also accepts <code>rel="nofollow"</code>. Marking links this way tells search engines not to treat them as editorial endorsements, which protects your site from link-scheme penalties. The snippet includes both, plus <code>noopener</code> for safe new-tab links.</p>
+<h2>UTM tags and affiliate IDs do different jobs</h2>
+<p>Your affiliate ID tells the program who to pay. UTM tags tell analytics tools where a visitor came from. Some programs strip unknown parameters or forbid UTM tags on their links; if your clicks stop tracking, remove the UTM fields and test again.</p>
+<h2>Keep links honest</h2>
+<p>Cloaking a link so readers can&rsquo;t see where it goes is allowed by many programs, but it never replaces disclosure. Place a short disclosure before the first affiliate link on the page. The <a href="../disclosure-generator/">disclosure generator</a> writes one for you.</p>
+</div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

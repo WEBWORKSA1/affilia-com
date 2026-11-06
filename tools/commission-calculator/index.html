@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-root="../../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Affiliate commission calculator: recurring, bounty and hybrid | Affilia</title>
+<meta name="description" content="Free affiliate commission calculator. Model 12 months of earnings for percentage, bounty or hybrid programs, with recurring terms, cancellations, refunds and EPC.">
+<link rel="canonical" href="https://affilia.com/tools/commission-calculator/">
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../assets/js/config.js" defer></script>
+<script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/tools.js" defer></script>
+</head>
+<body data-nav="tools">
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<div class="wrap page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../">Tools</a> / Commission calculator</nav>
+<h1>Affiliate commission calculator</h1>
+<p class="lede">Model twelve months of earnings for any program: a percentage, a fixed bounty or both, paid once or on every renewal, with cancellations and refunds taken out.</p>
+</div>
+<section class="wrap" data-tool="commission">
+<div class="tool">
+<div class="form-card">
+<div class="grid-2">
+<div class="field"><label for="c-clicks">Clicks to the program per month</label><input id="c-clicks" type="number" min="0" value="2000"></div>
+<div class="field"><label for="c-conv">Conversion rate (%)</label><input id="c-conv" type="number" min="0" max="100" step="0.1" value="2"></div>
+</div>
+<div class="field"><label for="c-type">How the program pays</label><select id="c-type"><option value="percent">Percentage of each payment</option><option value="flat">Fixed bounty per new customer</option><option value="hybrid">Bounty plus a percentage</option></select></div>
+<div class="grid-2">
+<div class="field" data-show="percent hybrid"><label for="c-price">Order or monthly plan value ($)</label><input id="c-price" type="number" min="0" value="49"></div>
+<div class="field" data-show="percent hybrid"><label for="c-pct">Commission (%)</label><input id="c-pct" type="number" min="0" max="100" step="0.5" value="30"></div>
+<div class="field" data-show="flat hybrid"><label for="c-flat">Bounty per new customer ($)</label><input id="c-flat" type="number" min="0" value="100"></div>
+</div>
+<div class="field" data-show="percent hybrid"><label for="c-months">How long the percentage is paid</label><select id="c-months"><option value="1">First payment only</option><option value="12" selected>12 months</option><option value="24">24 months</option><option value="999">For the life of the account</option></select></div>
+<div class="grid-2">
+<div class="field"><label for="c-churn">Customers who cancel each month (%)</label><input id="c-churn" type="number" min="0" max="100" step="0.5" value="5"><span class="hint">Use 0 for one-time purchases.</span></div>
+<div class="field"><label for="c-refund">Refunds and reversed sales (%)</label><input id="c-refund" type="number" min="0" max="100" step="0.5" value="3"></div>
+</div>
+</div>
+<div class="tool-out" aria-live="polite">
+<dl class="stats">
+<div class="big"><dt>First 12 months</dt><dd id="o-total">$0</dd></div>
+<div><dt>Month one</dt><dd id="o-first">$0</dd></div>
+<div><dt>Month twelve</dt><dd id="o-last">$0</dd></div>
+<div><dt>New customers per month</dt><dd id="o-new">0</dd></div>
+<div><dt>Earnings per click over the year</dt><dd id="o-epc">$0.00</dd></div>
+</dl>
+<details><summary>Month by month</summary><table class="mini-table"><thead><tr><th scope="col">Month</th><th scope="col">Commission</th></tr></thead><tbody id="o-table"></tbody></table></details>
+</div>
+</div>
+</section>
+<div class="wrap"><div class="ad-slot" data-ad="inArticle"></div></div>
+<section class="section wrap">
+<div class="prose">
+<h2>How the calculator works</h2>
+<p>Each month the calculator adds a new group of customers: your clicks multiplied by your conversion rate. Bounties are paid once, in the month a customer joins. Percentages are paid on every payment for as long as the program allows, but each month a share of earlier customers cancels, so older groups shrink. Refunds and reversed sales come off the top of each month.</p>
+<p>Month twelve is usually much larger than month one for recurring programs, because twelve groups of customers are paying at once. That compounding is the reason recurring programs reward patient publishers.</p>
+<h2>Choosing realistic inputs</h2>
+<ul>
+<li><strong>Clicks:</strong> count clicks on affiliate links, not pageviews. Most link managers and networks report them.</li>
+<li><strong>Conversion rate:</strong> affiliate clicks commonly convert somewhere between half a percent and a few percent. Comparison and review pages convert better than general articles.</li>
+<li><strong>Cancellations:</strong> monthly software subscriptions often lose a few percent of customers each month; annual plans lose fewer.</li>
+<li><strong>Refunds:</strong> digital products with generous guarantees can see higher reversal rates. Your network dashboard shows the real figure.</li>
+</ul>
+<h2>Frequently asked</h2>
+<h3>Why is my earnings per click so low?</h3>
+<p>EPC spreads twelve months of earnings across twelve months of clicks. It is the fairest way to compare a recurring program with a bounty program, because it shows what each click is worth over time.</p>
+<h3>Does this include network fees?</h3>
+<p>No. Publishers usually receive the advertised commission. Brands pay network fees on top; use the <a href="../commission-planner/">brand commission planner</a> for that side of the math.</p>
+<h3>Is this a forecast?</h3>
+<p>No. It is an illustration based on the numbers you enter. Real results vary with traffic quality, seasonality and changes to program terms.</p>
+<p class="btn-row"><a class="btn btn-pub" href="../../programs/">Compare programs in the directory</a><a class="btn btn-ghost" href="../epc-calculator/">Compare with your AdSense RPM</a></p>
+</div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>
